@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>hello</title>
+		<script src="jQuery.min.js"></script>
+		<script src="block.js"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		<h2 id="greet"> Webfi!</h2>
+		<p>Block website using words filtering.</p>
+		<br>
+		<div>
+			<label  >Enter Keyword:</label>
+			<input type="text" id="keyword" placeholder="keyword">
+			<button class="btn_primary" id="blockKeyword">Block</button>
+		</div>
+		<div>
+		<br>
+			<button class="btn_secondary" id="showKeyword">Show Keywords</button>
+			<button class="btn_secondary2"id="clearKeyword">Clear Keywords</button>
+		</div>
+		
+	</body>
+</html>
