@@ -1,0 +1,47 @@
+
+//console.log("chrome extension log test");
+/*
+$(function(){
+	$('#keyword').keyup(function(){
+		$('#greet').text('hello ' + $('#keyword').val());
+	})
+})
+*/
+
+//BLOCK WORDS
+findString = function findText(text) {
+  if(window.find(text)){
+    document.documentElement.innerHTML = '';
+    document.documentElement.innerHTML = 'This site is blocked because it contains specific information related to the keyword you blocked.';
+    document.documentElement.scrollTop = 0;
+  };
+}
+
+chrome.storage.sync.get('keyword',function(data){
+	//alert(data.keyword);
+	//keyword = data.keyword;
+	findString(data.keyword);
+});
+//findString(""+keyword);
+
+//BLOCK THE PARTIAL DOMAINS
+findURL = function changeURL(text){
+  var current = window.location.href;
+  if(current === text){
+    window.location.replace("https://www.google.co.in");
+  }
+}
+
+//BLOCK THE ENTIRE DOMAIN WITH THE FOLLOWING FUNCTION
+findAllURL = function changeAllURL(text){
+  var current = window.location.href;
+  if(current.startsWith(text)){
+    document.documentElement.innerHTML = '';
+    document.documentElement.innerHTML = 'Domain is blocked';
+    document.documentElement.scrollTop = 0;
+  }
+}
+
+
+findURL("https://www.quora.com/");
+findAllURL("https://www.facebook.com/");
