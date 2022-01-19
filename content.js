@@ -23,25 +23,3 @@ chrome.storage.sync.get('keyword',function(data){
 	findString(data.keyword);
 });
 //findString(""+keyword);
-
-//BLOCK THE PARTIAL DOMAINS
-findURL = function changeURL(text){
-  var current = window.location.href;
-  if(current === text){
-    window.location.replace("https://www.google.co.in");
-  }
-}
-
-//BLOCK THE ENTIRE DOMAIN WITH THE FOLLOWING FUNCTION
-findAllURL = function changeAllURL(text){
-  var current = window.location.href;
-  if(current.startsWith(text)){
-    document.documentElement.innerHTML = '';
-    document.documentElement.innerHTML = 'Domain is blocked';
-    document.documentElement.scrollTop = 0;
-  }
-}
-
-
-findURL("https://www.quora.com/");
-findAllURL("https://www.facebook.com/");
